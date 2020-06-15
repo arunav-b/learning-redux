@@ -1,33 +1,34 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
-
-// Action creators from redux-toolkit
-export const bugAdded = createAction("bugAdded");
-export const bugRemoved = createAction("bugRemoved");
-export const bugResolved = createAction("bugResolved");
+import { createAction, createReducer, createSlice } from "@reduxjs/toolkit";
 
 // Reducers has to be default export in Ducks Pattern
-//CreateReducer takes in 2 params -
-// initial state
-// actions Map
+// createSlice takes in 3 params which is being set in their properties -
+// name of the slice
+// initialState of the slice
+// list of reducers in a key-value map of event -> event-handler
 let lastId = 0;
-export default createReducer([], {
-  // key-value in actions map is defined as -
-  // actions : functions (event / action (key)   =>   event-handler / reducer (value))
-  [bugAdded.type]: (bugs, action) => {
-    bugs.push({
-      id: ++lastId,
-      description: action.payload.description,
-      resolved: false,
-    });
-  },
-  [bugRemoved.type]: (bugs, action) => {
-    const bugIndex = bugs.findIndex((bug) => bug.id === action.payload.id);
-    console.log(bugs[bugIndex]);
-    bugs.splice(bugIndex, 1);
-  },
-  [bugResolved.type]: (bugs, action) => {
-    const bugIndex = bugs.findIndex((bug) => bug.id === action.payload.id);
-    console.log(bugs[bugIndex]);
-    bugs[bugIndex].resolved = true;
+const slice = createSlice({
+  name: "bugs",
+  initialState: [],
+  reducers: {
+    bugAdded: (bugs, action) => {
+      bugs.push({
+        id: ++lastId,
+        description: action.payload.description,
+        resolved: false,
+      });
+    },
+    bugResolved: (bugs, action) => {
+      const bugIndex = bugs.findIndex((bug) => bug.id === action.payload.id);
+      console.log(bugs[bugIndex]);
+      bugs[bugIndex].resolved = true;
+    },
+    bugRemoved: (bugs, action) => {
+      const bugIndex = bugs.findIndex((bug) => bug.id === action.payload.id);
+      console.log(bugs[bugIndex]);
+      bugs.splice(bugIndex, 1);
+    },
   },
 });
+
+export default slice.reducer;
+export const { bugAdded, bugRemoved, bugResolved } = slice.actions;

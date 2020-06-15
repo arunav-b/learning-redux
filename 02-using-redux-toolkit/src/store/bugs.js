@@ -32,3 +32,8 @@ const slice = createSlice({
 // Reducers has to be default export in Ducks Pattern
 export default slice.reducer;
 export const { bugAdded, bugRemoved, bugResolved } = slice.actions;
+
+// Selectors
+export const getUnresolvedBugs = (bugs) => {
+  return bugs.filter((bug) => !bug.resolved);
+};

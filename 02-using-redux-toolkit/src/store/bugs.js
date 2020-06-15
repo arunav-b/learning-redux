@@ -1,6 +1,5 @@
-import { createAction, createReducer, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-// Reducers has to be default export in Ducks Pattern
 // createSlice takes in 3 params which is being set in their properties -
 // name of the slice
 // initialState of the slice
@@ -30,5 +29,6 @@ const slice = createSlice({
   },
 });
 
+// Reducers has to be default export in Ducks Pattern
 export default slice.reducer;
 export const { bugAdded, bugRemoved, bugResolved } = slice.actions;

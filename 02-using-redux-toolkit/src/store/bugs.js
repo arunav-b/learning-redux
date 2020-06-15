@@ -27,12 +27,22 @@ const slice = createSlice({
       console.log(bugs[bugIndex]);
       bugs.splice(bugIndex, 1);
     },
+    bugAssignedToUser: (bugs, action) => {
+      const { bugId, userId } = action.payload;
+      const bugIndex = bugs.findIndex((bug) => bug.id === bugId);
+      bugs[bugIndex].userId = userId;
+    },
   },
 });
 
 // Reducers has to be default export in Ducks Pattern
 export default slice.reducer;
-export const { bugAdded, bugRemoved, bugResolved } = slice.actions;
+export const {
+  bugAdded,
+  bugRemoved,
+  bugResolved,
+  bugAssignedToUser,
+} = slice.actions;
 
 // Selectors
 // export const getUnresolvedBugs = (state) => {
@@ -44,4 +54,15 @@ export const { bugAdded, bugRemoved, bugResolved } = slice.actions;
 export const getUnresolvedBugs = createSelector(
   (state) => state.entities.bugs,
   (bugs) => bugs.filter((bug) => !bug.resolved)
+);
+
+export const getBugsByUser = (userId) =>
+  createSelector(
+    (state) => state.entities.bugs,
+    (bugs) => bugs.filter((bug) => bug.userId === userId)
+  );
+
+export const getUnassignedBugs = createSelector(
+  (state) => state.entities.bugs,
+  (bugs) => bugs.filter((bug) => !bug.userId)
 );

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let lastId = 0;
 const slice = createSlice({
-  name: "bugs",
+  name: "projects",
   initialState: [],
   reducers: {
     projectAdded: (projects, action) => {

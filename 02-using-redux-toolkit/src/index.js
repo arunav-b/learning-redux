@@ -28,4 +28,7 @@ store.dispatch(projectAdded({ description: "Project 2" }));
 console.log(store.getState());
 
 // Fetching unresolved bugs
-console.log(getUnresolvedBugs(store.getState().entities.bugs));
+const call1 = getUnresolvedBugs(store.getState());
+const call2 = getUnresolvedBugs(store.getState());
+
+console.log(call1 === call2);

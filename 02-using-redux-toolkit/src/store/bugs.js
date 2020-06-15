@@ -1,31 +1,33 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAction, createReducer } from "@reduxjs/toolkit";
 
 // Action creators from redux-toolkit
 export const bugAdded = createAction("bugAdded");
 export const bugRemoved = createAction("bugRemoved");
 export const bugResolved = createAction("bugResolved");
 
-// Reducers
 // Reducers has to be default export in Ducks Pattern
+//CreateReducer takes in 2 params -
+// initial state
+// actions Map
 let lastId = 0;
-export default function reducer(state = [], action) {
-  switch (action.type) {
-    case bugAdded.type:
-      return [
-        ...state,
-        {
-          id: ++lastId,
-          description: action.payload.description,
-          resolved: false,
-        },
-      ];
-    case bugRemoved.type:
-      return state.filter((bug) => bug.id != action.payload.id);
-    case bugResolved.type:
-      return state.map((bug) =>
-        bug.id !== action.payload.id ? bug : { ...bug, resolved: true }
-      );
-    default:
-      return state;
-  }
-}
+export default createReducer([], {
+  // key-value in actions map is defined as -
+  // actions : functions (event / action (key)   =>   event-handler / reducer (value))
+  [bugAdded.type]: (bugs, action) => {
+    bugs.push({
+      id: ++lastId,
+      description: action.payload.description,
+      resolved: false,
+    });
+  },
+  [bugRemoved.type]: (bugs, action) => {
+    const bugIndex = bugs.findIndex((bug) => bug.id === action.payload.id);
+    console.log(bugs[bugIndex]);
+    bugs.splice(bugIndex, 1);
+  },
+  [bugResolved.type]: (bugs, action) => {
+    const bugIndex = bugs.findIndex((bug) => bug.id === action.payload.id);
+    console.log(bugs[bugIndex]);
+    bugs[bugIndex].resolved = true;
+  },
+});

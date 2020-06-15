@@ -8,11 +8,11 @@ store.subscribe(() => {
 });
 
 // Dispatching the store
-store.dispatch(bugAdded("Bug1"));
-store.dispatch(bugRemoved(1));
-store.dispatch(bugAdded("Bug2"));
-store.dispatch(bugAdded("Bug3"));
-store.dispatch(bugResolved(3));
-store.dispatch(bugAdded("Bug4"));
+store.dispatch(bugAdded({ description: "Bug1" }));
+store.dispatch(bugRemoved({ id: 1 }));
+store.dispatch(bugAdded({ description: "Bug2" }));
+store.dispatch(bugAdded({ description: "Bug3" }));
+store.dispatch(bugResolved({ id: 3 }));
+store.dispatch(bugAdded({ description: "Bug4" }));
 
 console.log(store.getState());

@@ -56,17 +56,20 @@ To get the maximum benefit out of redux store all state information into redux e
 <br/>
 
   <img src="./images/local-vs-global.png" width="50%">
-  <img src="./images/exception.png" width="35%">
+  <img src="./images/exception.png" width="25%">
 
 - **Structuring a Redux Store**
 
-  <img src="./images/entities-store-structure.png" width="14%">
-  <img src="./images/root-store-structure.png" width="25%">
+  <img src="./images/entities-store-structure.png" width="28%">
+  <img src="./images/root-store-structure.png" width="50%">
 
 - **Combining Reducers**
 
 The store has access to the root reducer. Based on the type of the action, the same will be routed to the appropriate reducer.
-<img src="./images/combining-reducers.png" width="40%">
+
+<br/>
+
+  <img src="./images/combining-reducers.png" width="45%">
 
 - **Selectors**
 

@@ -29,6 +29,7 @@ Using `createSlice()` method of redux-toolkit we can combine actions and reducer
 ## Redux Store properties:
 
 The state of the redux store cannot be updated directly from the app. Below are the following methods provided by a redux store -
+<br/>
 <img src="./images/store-properties.png" width="70%">.
 
 <br/>
@@ -53,8 +54,6 @@ Actions and reducers can be defined in separate files and folders. But when usin
 
   To get the maximum benefit out of redux store all state information into redux except for form data. Below images shows the pros and cons and also the exception.
 
-<br/>
-
   <img src="./images/local-vs-global.png" width="50%">
   <img src="./images/exception.png" width="25%">
 
@@ -66,8 +65,6 @@ Actions and reducers can be defined in separate files and folders. But when usin
 - **Combining Reducers**
 
   The store has access to the root reducer. Based on the type of the action, the same will be routed to the appropriate reducer.
-
-<br/>
 
   <img src="./images/combining-reducers.png" width="45%">
 

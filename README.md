@@ -51,7 +51,7 @@ Actions and reducers can be defined in separate files and folders. But when usin
 
 - **Global vs All (Local + Global) State**
 
-To get the maximum benefit out of redux store all state information into redux except for form data. Below images shows the pros and cons and also the exception.
+  To get the maximum benefit out of redux store all state information into redux except for form data. Below images shows the pros and cons and also the exception.
 
 <br/>
 
@@ -65,7 +65,7 @@ To get the maximum benefit out of redux store all state information into redux e
 
 - **Combining Reducers**
 
-The store has access to the root reducer. Based on the type of the action, the same will be routed to the appropriate reducer.
+  The store has access to the root reducer. Based on the type of the action, the same will be routed to the appropriate reducer.
 
 <br/>
 

@@ -27,6 +27,7 @@ export const bugResolved = (id) => ({
 
 // Reducers
 // Reducers has to be default export in Ducks Pattern
+// Ducks Pattern is having action and reducer in the same file
 let lastId = 0;
 export default function reducer(state = [], action) {
   switch (action.type) {

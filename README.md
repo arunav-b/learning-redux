@@ -55,19 +55,19 @@
 
 - Reducer is a function with two parameters - the current state and an action. Reducer returns the new state based on the action.
 
-  <img src="./images/create-reducer.png" width="40%">
+  <img src="./images/create-reducer.png" width="50%">
 
 ### 2.D. Set up the store
 
 - A store is created using the `createStore()` method of redux which takes a reducer as an argument.
 
-  <img src="./images/create-store.png" width="30%">
+  <img src="./images/create-store.png" width="50%">
 
 > **Note**:
 >
 > - Once all of these pieces are setup, actions can be dispatched from the App (`index.js` in our examples) by calling the `dispatch()` method from the store.
 > - Below are the different properties of the store that can be accessed directly from the App.
->   <img src="./images/store-properties.png" width="90%">.
+>   <img src="./images/store-properties.png" width="100%">.
 
 <br/>
 
@@ -76,7 +76,7 @@
 - Actions and reducers can be defined in separate files and folders. But a preferred way of storing actions & reducers is using the **_Ducks pattern_**. In this pattern, actions & reducers are defined in the same .js file.
 - In the below file structure we can see there 3 different files are defined and kept under the store folder. Each individual file has its own actions and reducers.
 
-  <img src="./images/file-structure.png" width="30%">
+  <img src="./images/file-structure.png" width="25%">
 
 <br/>
 

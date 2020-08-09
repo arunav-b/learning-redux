@@ -1,0 +1,82 @@
+# Demo Redux Store
+## Actions:
+✓ List contacts
+✓ Add a send in "active" status
+✓ List sends in "active" status
+✓ Update a send with "refunded" status
+- List transactions with "ready for split" status
+- Update a transaction in "split initiated" status
+- Add a split in "initiated" status
+- List splits in "initiated" status
+- Update a split in "processed" status
+
+## Entities:
+✓ sends
+- splits
+✓ balance
+✓ contacts
+- transactions
+
+## Selectors:
+✓ getContacts
+✓ getActiveSends
+- getReadyForSplitTrxns
+- getSplitInitiatedTrxnByTrxnId
+- getInitiatedSplits
+✓ getBalance
+
+## Reducers:
+✓ sendAdded
+✓ sendRefunded
+- trxnIsSplit
+- splitAdded
+- splitProcessed
+
+## Actions from screens:
+✓ List contacts (from Send Money screen)
+  ✓ getBalance
+  ✓ getContacts
+✓ Add a send in "active" status (from Send Money Response screen)
+  ✓ getBalance
+  ✓ sendAdded
+  ✓ balanceReduced
+✓ List sends in "active" status (from Refund Screen)
+  ✓ getBalance
+  ✓ getActiveSends
+✓ Update a send with "refunded" status (from Refund Response Screen)
+  ✓ getBalance
+  ✓ sendRefunded
+  ✓ balanceAdded
+- List expenses with "ready for split" status (from Initiate Split Screen)
+  - getContacts
+  - getNonSplitExpenses
+- Update a expense in "split initiated" status (from Initiate Split Response Screen)
+  - expensesUpdated
+- Add a split in "initiated" status (from Initiate Split Response Screen)
+  - splitAdded
+  - getSplitInitiatedTrxnByTrxnId
+- List splits in "initiated" status (from Process Split Screen)
+  - getBalance
+  - getInitiatedSplits
+- Update a split in "processed" status (from Process Split Response Screen)
+  - getBalance
+  - splitProcessed
+  - balanceAdded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jot something down
+
